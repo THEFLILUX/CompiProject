@@ -8,7 +8,7 @@ int main() {
     if(parser(numero)){
         cout << "¡Numero Aceptado!" << endl;
     } else {
-        error();
+        error(numero);
     }
     return 0;
 }

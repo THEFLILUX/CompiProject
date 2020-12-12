@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-bool parser (string numero);
+bool parser (string& numero);
 bool Z1 (string& numero);
 bool Z2 (string& numero);
 bool Z3 (string& numero);
@@ -21,15 +21,16 @@ bool Z12 (string& numero);
 bool Z13 (string& numero);
 bool Z14 (string& numero);
 bool U (string& numero);
-void error();
+void error(string tok);
 bool scanner(string& numero,string token);
 
-void error(){
-    cout << "¡Numero Rechazado!" << endl;
-    cout << "\n*** ERROR"<< endl;
+void error(string tok){
+    cout << "\n¡Numero Rechazado!" << endl;
+    cout << "\n*** ERROR IN TOKEN: "<<tok<< endl;
     exit(1);
 }
 
+//drei - zehn
 bool scanner (string& numero,string token) {
     int cont = 0;
     int s = (int)numero.size()-1;
@@ -51,7 +52,7 @@ bool scanner (string& numero,string token) {
 
 }
 
-bool parser(string numero) {
+bool parser(string& numero) {
     return  Z2(numero) ||
             Z7(numero) ||
             Z8(numero) ||
